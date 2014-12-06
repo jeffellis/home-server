@@ -1,8 +1,8 @@
 #!/bin/sh
 
-export SRCDRIVE=/disks/backup
+export SRCDRIVE=$1
 export SRC=${SRCDRIVE}/offsite-backup
-export DEST=/
+export UNION1=/volume/union1
 
 if [ ! -e ${SRCDRIVE}/offsite-backup-disk ]
 then
@@ -13,11 +13,9 @@ fi
 RSYNC='/usr/bin/rsync'
 RSYNC_OPTS='-avhHl'
 
-${RSYNC} ${RSYNC_OPTS} ${SRC} /disks/md1/music 
-${RSYNC} ${RSYNC_OPTS} ${SRC} /disks/md1/photos
-${RSYNC} ${RSYNC_OPTS} ${SRC} /disks/md1/audio-books
-${RSYNC} ${RSYNC_OPTS} ${SRC} /disks/md1/itunes
-${RSYNC} ${RSYNC_OPTS} ${SRC} /disks/md1/software
-${RSYNC} ${RSYNC_OPTS} ${SRC} /disks/md1/VirtualBox
-${RSYNC} ${RSYNC_OPTS} ${SRC} /disks/md1/backuppc
-${RSYNC} ${RSYNC_OPTS} ${SRC} /disks/md1/videos
+${RSYNC} ${RSYNC_OPTS} ${SRC}/audio-books/ ${UNION1}/audio-books
+${RSYNC} ${RSYNC_OPTS} ${SRC}/itunes/ ${UNION1}/itunes
+#${RSYNC} ${RSYNC_OPTS} ${SRC}/music/ ${UNION1}/music 
+${RSYNC} ${RSYNC_OPTS} ${SRC}/photos/ ${UNION1}/photos
+${RSYNC} ${RSYNC_OPTS} ${SRC}/software/ ${UNION1}/software
+${RSYNC} ${RSYNC_OPTS} ${SRC}/videos/ ${UNION1}/videos

@@ -1,8 +1,10 @@
-#!/bin/sh
+#!/bin/sh -x
 
 DESTDRIVE=/volume/backup
 PASSWORD=$FS_ENCRYPT_PASSWORD
 VOLNAME='WD3TB_BACKUP'
+VOLNAME='EXT_BACKUP'
+
 DEVNAME=$1
 
 if [ -z "$1" ]
@@ -47,7 +49,7 @@ ${RSYNC} ${RSYNC_OPTS} ${SRC}/software/ ${DEST}/software
 ${RSYNC} ${RSYNC_OPTS} ${SRC}/videos/ ${DEST}/videos
 #${RSYNC} ${RSYNC_OPTS} ${SRC}/VirtualBox/ ${DEST}/VirtualBox
 
-${RSYNC} ${RSYNC_OPTS} ${SRC}/movies/ /volume/media-backup/movies
+#${RSYNC} ${RSYNC_OPTS} ${SRC}/movies/ /volume/media-backup/movies
 
 df -h ${DESTDRIVE}
 # Unmount and close the encrypted drive

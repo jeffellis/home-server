@@ -1,41 +1,36 @@
 # /etc/fstab: static file system information.
 #
-# Use 'vol_id --uuid' to print the universally unique identifier for a
+# Use 'blkid' to print the universally unique identifier for a
 # device; this may be used with UUID= as a more robust way to name devices
 # that works even if disks are added and removed. See fstab(5).
 #
 # <file system> <mount point>   <type>  <options>       <dump>  <pass>
-proc            /proc           proc    defaults        0       0
-
-# / was on /dev/sda2 during installation
-UUID=44f96f95-1627-4cf0-bf68-ea85ca232da6 /               ext3    relatime,errors=remount-ro 0       1
-
-# swap was on /dev/sda1 during installation
-UUID=185c671f-2ce7-429f-afce-2fec8fa71ade none            swap    sw              0       0
-
-/dev/scd0       /media/cdrom0   udf,iso9660 user,noauto,exec,utf8 0       0
+# / was on /dev/sdi1 during installation
+UUID=de242955-45e0-41bc-96c7-f28044ebc1db /               ext4    errors=remount-ro 0       1
+# /home was on /dev/sdi3 during installation
+UUID=04a004e0-5f2e-45c9-883b-607daf4c31ee /home           ext4    defaults        0       2
+# swap was on /dev/sdi2 during installation
+UUID=3a406bd7-a2c4-4059-8519-a62050340693 none            swap    sw              0       0
 
 # 1500 GB Seagates
-UUID=5f892e92-2fdb-4f2a-baf1-8e19c1142ef2	/volume/internal-slot-1    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
-UUID=6d9d4fea-9af9-4f5f-8361-48944ab0e7d6	/volume/internal-slot-2    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
-UUID=10970910-d132-4786-808c-8403fd8a7933	/volume/internal-slot-3    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
-UUID=a512eaec-5e93-4ffe-905d-c73ab93d1e0d	/volume/internal-slot-4    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
-UUID=58c71cf6-25f7-4d46-8cc8-44f12ccc1de9	/volume/internal-slot-5    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
+UUID=5f892e92-2fdb-4f2a-baf1-8e19c1142ef2    /volume/internal-bay-1    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
+UUID=6d9d4fea-9af9-4f5f-8361-48944ab0e7d6    /volume/internal-bay-2    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
+# internal-bay-3 is part of zfs_pool_3tb
+UUID=a512eaec-5e93-4ffe-905d-c73ab93d1e0d    /volume/internal-bay-4    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
+UUID=08158d12-f4fa-43dc-b910-f8c4111f81cf    /volume/internal-bay-5    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
 
-UUID=d25703e2-3121-4cd8-9ed2-5810ee39ca80	/volume/rosewill-bay-1    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
-UUID=e46b0ce1-9f13-410d-bfe8-ca632d56a34e	/volume/rosewill-bay-2    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
-UUID=912e9f5b-8943-4b11-a47d-bc54cb9f1e1c	/volume/rosewill-bay-3    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
+#UUID=d25703e2-3121-4cd8-9ed2-5810ee39ca80    /volume/rosewill-bay-1    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
+#UUID=e46b0ce1-9f13-410d-bfe8-ca632d56a34e    /volume/rosewill-bay-2    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
+UUID=ec79d71f-5328-49f6-9406-040067eed67b    /volume/rosewill-bay-3    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
+UUID=983d1415-0d87-403f-99ab-f0ed1dfcf136     /volume/rosewill-bay-4    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
+UUID=a5b360bf-28f2-48b4-b605-c97a3766aebe     /volume/rosewill-bay-5    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
+UUID=06ade2db-3d3a-4e4a-9ec5-d64655baa940    /volume/rosewill-bay-6    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
+UUID=96a10a41-93cd-485f-a298-3888542dff37    /volume/rosewill-bay-7    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
+UUID=564bbdf9-88f5-471c-9c9d-b6864a439473    /volume/rosewill-bay-8    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
 
-UUID=983d1415-0d87-403f-99ab-f0ed1dfcf136 	/volume/rosewill-bay-4    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
-UUID=a5b360bf-28f2-48b4-b605-c97a3766aebe 	/volume/rosewill-bay-5    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
-UUID=06ade2db-3d3a-4e4a-9ec5-d64655baa940	/volume/rosewill-bay-6    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
-UUID=96a10a41-93cd-485f-a298-3888542dff37	/volume/rosewill-bay-7    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
-UUID=564bbdf9-88f5-471c-9c9d-b6864a439473	/volume/rosewill-bay-8    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
 
+#mhddfs#/volume/internal-bay-4,/volume/rosewill-bay-7,/volume/rosewill-bay-8 /volume/union1 fuse defaults,allow_other 0 0
 
-mhddfs#/volume/internal-slot-5,/volume/internal-slot-4,/volume/rosewill-bay-7,/volume/rosewill-bay-8 /volume/md1 fuse defaults,allow_other 0 0
+mhddfs#/volume/internal-bay-1,/volume/internal-bay-2,/volume/internal-bay-4,/volume/internal-bay-5,/volume/rosewill-bay-3,/volume/rosewill-bay-4,/volume/rosewill-bay-5,/volume/rosewill-bay-6,/volume/rosewill-bay-7 /volume/union0 fuse defaults,allow_other 0 0
 
-mhddfs#/volume/internal-slot-2,/volume/internal-slot-1,/volume/rosewill-bay-6,/volume/rosewill-bay-4 /volume/md0 fuse defaults,allow_other 0 0
-
-mhddfs#/volume/rosewill-bay-1,/volume/rosewill-bay-2,/volume/rosewill-bay-3,/volume/rosewill-bay-5	/volume/media-backup  fuse defaults,allow_other 0 0
-
+#mhddfs#/volume/rosewill-bay-1,/volume/rosewill-bay-2,/volume/internal-bay-4,/volume/internal-bay-5,/volume/rosewill-bay-3,/volume/rosewill-bay-5    /volume/media-backup  fuse defaults,allow_other 0 0
