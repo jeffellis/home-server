@@ -12,9 +12,9 @@ UUID=04a004e0-5f2e-45c9-883b-607daf4c31ee /home           ext4    defaults      
 # swap was on /dev/sdi2 during installation
 UUID=3a406bd7-a2c4-4059-8519-a62050340693 none            swap    sw              0       0
 
-# 1500 GB Seagates
-UUID=5f892e92-2fdb-4f2a-baf1-8e19c1142ef2    /volume/internal-bay-1    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
-UUID=6d9d4fea-9af9-4f5f-8361-48944ab0e7d6    /volume/internal-bay-2    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
+# Internal Bays
+LABEL=WDGreen3TB    /volume/internal-bay-1    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
+UUID=c22155cc-f7b3-4f5d-8ad1-c8b64871150a    /volume/internal-bay-2    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
 # internal-bay-3 is part of zfs_pool_3tb
 UUID=a512eaec-5e93-4ffe-905d-c73ab93d1e0d    /volume/internal-bay-4    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
 UUID=08158d12-f4fa-43dc-b910-f8c4111f81cf    /volume/internal-bay-5    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
@@ -31,6 +31,7 @@ UUID=564bbdf9-88f5-471c-9c9d-b6864a439473    /volume/rosewill-bay-8    ext4    d
 
 #mhddfs#/volume/internal-bay-4,/volume/rosewill-bay-7,/volume/rosewill-bay-8 /volume/union1 fuse defaults,allow_other 0 0
 
-mhddfs#/volume/internal-bay-1,/volume/internal-bay-2,/volume/internal-bay-4,/volume/internal-bay-5,/volume/rosewill-bay-3,/volume/rosewill-bay-4,/volume/rosewill-bay-5,/volume/rosewill-bay-6,/volume/rosewill-bay-7 /volume/union0 fuse defaults,allow_other 0 0
+mhddfs#/volume/internal-bay-1,/volume/internal-bay-2,/volume/internal-bay-5,/volume/rosewill-bay-3,/volume/rosewill-bay-4,/volume/rosewill-bay-7 /volume/union0 fuse defaults,allow_other 0 0
+mhddfs#/volume/rosewill-bay-5,/volume/rosewill-bay-6 /volume/seagate-15s  fuse defaults,allow_other 0 0
 
 #mhddfs#/volume/rosewill-bay-1,/volume/rosewill-bay-2,/volume/internal-bay-4,/volume/internal-bay-5,/volume/rosewill-bay-3,/volume/rosewill-bay-5    /volume/media-backup  fuse defaults,allow_other 0 0
