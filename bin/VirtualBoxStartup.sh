@@ -1,7 +1,7 @@
 #!/bin/sh
 
 LOGDIR=/var/log/VirtualBox
-VM="winxp-news"
+VM="win10-news-02"
 mkdir -p $LOGDIR
 
 echo "Starting WindowsNews" >> ${LOGDIR}/${VM}
