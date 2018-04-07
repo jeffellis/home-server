@@ -14,24 +14,25 @@ UUID=3a406bd7-a2c4-4059-8519-a62050340693 none            swap    sw            
 
 # Internal Bays
 LABEL=WDGreen3TB    /volume/internal-bay-1    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
-UUID=c22155cc-f7b3-4f5d-8ad1-c8b64871150a    /volume/internal-bay-2    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
+#UUID=c22155cc-f7b3-4f5d-8ad1-c8b64871150a    /volume/internal-bay-2    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
+LABEL=TOSHIBA30-1    /volume/internal-bay-2    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
 # internal-bay-3 is part of zfs_pool_3tb
-UUID=a512eaec-5e93-4ffe-905d-c73ab93d1e0d    /volume/internal-bay-4    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
+
+#LABEL=SEAGATE30-1    /volume/internal-bay-4    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
+LABEL=SG-5TB-02-1500    /volume/internal-bay-4-1500    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
+LABEL=SG-5TB-02-3500    /volume/internal-bay-4-3500    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
+
 UUID=08158d12-f4fa-43dc-b910-f8c4111f81cf    /volume/internal-bay-5    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
 
-#UUID=d25703e2-3121-4cd8-9ed2-5810ee39ca80    /volume/rosewill-bay-1    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
-#UUID=e46b0ce1-9f13-410d-bfe8-ca632d56a34e    /volume/rosewill-bay-2    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
+# rosewill-bay-1 and rosewill-bay-2 are part of zfs_pool_3tb
+
 UUID=ec79d71f-5328-49f6-9406-040067eed67b    /volume/rosewill-bay-3    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
 UUID=983d1415-0d87-403f-99ab-f0ed1dfcf136     /volume/rosewill-bay-4    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
 UUID=a5b360bf-28f2-48b4-b605-c97a3766aebe     /volume/rosewill-bay-5    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
-UUID=06ade2db-3d3a-4e4a-9ec5-d64655baa940    /volume/rosewill-bay-6    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
-UUID=96a10a41-93cd-485f-a298-3888542dff37    /volume/rosewill-bay-7    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
-UUID=564bbdf9-88f5-471c-9c9d-b6864a439473    /volume/rosewill-bay-8    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
+UUID=e56a7f07-a0c3-4bea-bdaa-bc757854661f    /volume/rosewill-bay-6    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
+LABEL=SG-5TB-03-5000    /volume/rosewill-bay-7    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
+LABEL=SG-5TB-01-5000    /volume/rosewill-bay-8    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
 
 
-#mhddfs#/volume/internal-bay-4,/volume/rosewill-bay-7,/volume/rosewill-bay-8 /volume/union1 fuse defaults,allow_other 0 0
+mhddfs#/volume/internal-bay-1,/volume/internal-bay-2,/volume/internal-bay-4-3500,/volume/internal-bay-4-1500,/volume/internal-bay-5,/volume/rosewill-bay-4,/volume/rosewill-bay-6,/volume/rosewill-bay-7/union0,/volume/rosewill-bay-8 /volume/union0 fuse defaults,allow_other 0 0
 
-mhddfs#/volume/internal-bay-1,/volume/internal-bay-2,/volume/internal-bay-5,/volume/rosewill-bay-3,/volume/rosewill-bay-4,/volume/rosewill-bay-7 /volume/union0 fuse defaults,allow_other 0 0
-mhddfs#/volume/rosewill-bay-5,/volume/rosewill-bay-6 /volume/seagate-15s  fuse defaults,allow_other 0 0
-
-#mhddfs#/volume/rosewill-bay-1,/volume/rosewill-bay-2,/volume/internal-bay-4,/volume/internal-bay-5,/volume/rosewill-bay-3,/volume/rosewill-bay-5    /volume/media-backup  fuse defaults,allow_other 0 0
