@@ -5,34 +5,45 @@
 # that works even if disks are added and removed. See fstab(5).
 #
 # <file system> <mount point>   <type>  <options>       <dump>  <pass>
-# / was on /dev/sdi1 during installation
-UUID=de242955-45e0-41bc-96c7-f28044ebc1db /               ext4    errors=remount-ro 0       1
-# /home was on /dev/sdi3 during installation
-UUID=04a004e0-5f2e-45c9-883b-607daf4c31ee /home           ext4    defaults        0       2
-# swap was on /dev/sdi2 during installation
-UUID=3a406bd7-a2c4-4059-8519-a62050340693 none            swap    sw              0       0
+# / was on /dev/sdj1 during installation
+UUID=5c270d0d-5ffc-4af1-b011-4818497c3616 /               ext4    errors=remount-ro 0       1
+# swap was on /dev/sdj5 during installation
+#UUID=3e45ef01-f396-44e5-9ac6-6646ab1b3faf none            swap    sw              0       0
+/dev/mapper/cryptswap1 none swap sw 0 0
+
 
 # Internal Bays
-LABEL=WDGreen3TB    /volume/internal-bay-1    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
-#UUID=c22155cc-f7b3-4f5d-8ad1-c8b64871150a    /volume/internal-bay-2    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
-LABEL=TOSHIBA30-1    /volume/internal-bay-2    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
-# internal-bay-3 is part of zfs_pool_3tb
-
-#LABEL=SEAGATE30-1    /volume/internal-bay-4    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
-LABEL=SG-5TB-02-1500    /volume/internal-bay-4-1500    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
-LABEL=SG-5TB-02-3500    /volume/internal-bay-4-3500    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
-
-UUID=08158d12-f4fa-43dc-b910-f8c4111f81cf    /volume/internal-bay-5    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
-
-# rosewill-bay-1 and rosewill-bay-2 are part of zfs_pool_3tb
-
-UUID=ec79d71f-5328-49f6-9406-040067eed67b    /volume/rosewill-bay-3    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
-UUID=983d1415-0d87-403f-99ab-f0ed1dfcf136     /volume/rosewill-bay-4    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
-UUID=a5b360bf-28f2-48b4-b605-c97a3766aebe     /volume/rosewill-bay-5    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
-UUID=e56a7f07-a0c3-4bea-bdaa-bc757854661f    /volume/rosewill-bay-6    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
-LABEL=SG-5TB-03-5000    /volume/rosewill-bay-7    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
-LABEL=SG-5TB-01-5000    /volume/rosewill-bay-8    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
+LABEL=WDG-3TB-01-01    /volume/internal-bay-1    btrfs   noatime,nodiratime,noauto      0       0 
+LABEL=TOS-3TB-02-01    /volume/internal-bay-2    btrfs   noatime,nodiratime,noauto      0       0
+LABEL=WDG-3TB-02-01    /volume/internal-bay-3    btrfs   noatime,nodiratime,compress=lzo                                 0       0
+LABEL=WDG-3TB-03-01    /volume/internal-bay-4    btrfs   noatime,nodiratime,compress=lzo                                 0       0
+LABEL=WDG-3TB-04-01    /volume/internal-bay-5    btrfs   noatime,nodiratime,compress=lzo                                 0       0
 
 
-mhddfs#/volume/internal-bay-1,/volume/internal-bay-2,/volume/internal-bay-4-3500,/volume/internal-bay-4-1500,/volume/internal-bay-5,/volume/rosewill-bay-4,/volume/rosewill-bay-6,/volume/rosewill-bay-7/union0,/volume/rosewill-bay-8 /volume/union0 fuse defaults,allow_other 0 0
+
+# Rosewill Disk Stack
+LABEL=SEA-5TB-02-01 /volume/rosewill-bay-1    btrfs   noatime,nodiratime,noauto      0       0
+LABEL=SEA-8TB-01-01 /volume/SEA-8TB-01-01    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum,noauto   0       2
+LABEL=HIT-1TB-01-01 /volume/rosewill-bay-3    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
+LABEL=SEA-8TB-02-01 /volume/SEA-8TB-02-01    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum,noauto   0       2
+LABEL=HIT-1TB-02-01 /volume/HIT-1TB-02-01     ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum,noauto   0       2
+LABEL=SEA-15G-01-01 /volume/rosewill-bay-5    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
+LABEL=TOS-3TB-01-01 /volume/rosewill-bay-6    btrfs   noatime,nodiratime,noauto      0       0
+LABEL=SEA-5TB-03-01 /volume/rosewill-bay-7    btrfs   noatime,nodiratime,noauto      0       0
+LABEL=SEA-5TB-01-01 /volume/rosewill-bay-8    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum,noauto   0       2
+
+LABEL=SEA-8TB-03-01 /volume/SEA-8TB-03-01    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum,noauto   0       2
+
+
+#LABEL=SEA-15G-02-01 /volume/SEA-15G-02-01    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum,noauto      0       2
+#LABEL=SEA-15G-03-01 /volume/SEA-15G-03-01    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum,noauto      0       2
+
+# Unions
+
+mhddfs#/volume/internal-bay-1,/volume/internal-bay-2,/volume/rosewill-bay-1,/volume/SEA-8TB-01-01,/volume/SEA-8TB-02-01,/volume/rosewill-bay-6,/volume/rosewill-bay-7,/volume/rosewill-bay-8,/volume/HIT-1TB-02-01,/volume/SEA-8TB-03-01 /volume/union2 fuse defaults,allow_other,noauto 0 0
+
+mhddfs#/volume/internal-bay-3,/volume/internal-bay-4,/volume/internal-bay-5 /volume/union1 fuse defaults,allow_other 0 0
+
+
+
 
