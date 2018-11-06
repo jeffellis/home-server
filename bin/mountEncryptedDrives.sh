@@ -35,7 +35,7 @@ cryptsetup luksOpen --key-file ${KEY} /dev/disk/by-partlabel/HIT-1TB-02-01 HIT-1
 # USB 8TB
 cryptsetup luksOpen --key-file ${KEY} /dev/disk/by-partlabel/SEA-8TB-03-01 SEA-8TB-03-01
 
-#cryptsetup luksOpen --key-file ${KEY} /dev/disk/by-partlabel/SEA-15G-02-01 SEA-15G-02-01
+cryptsetup luksOpen --key-file ${KEY} /dev/disk/by-partlabel/SEA-1TB-01-01 SEA-1TB-01-01
 #cryptsetup luksOpen --key-file ${KEY} /dev/disk/by-partlabel/SEA-15G-03-01 SEA-15G-03-01
 
 # To add keyfile -- sudo cryptsetup luksAddKey /dev/sdX /root/keyfile 
@@ -52,7 +52,7 @@ mount /volume/SEA-8TB-02-01
 mount /volume/SEA-8TB-03-01
 
 mount /volume/HIT-1TB-02-01
-#mount /volume/SEA-15G-02-01
+mount /volume/SEA-1TB-01-01
 #mount /volume/SEA-15G-03-01
 
 mount /volume/union2
