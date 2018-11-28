@@ -1,0 +1,212 @@
+#======================= Global Settings =====================================
+[global]
+
+        workgroup = 5124SALEM
+        server string = magneto
+        netbios name = magneto
+
+# This option is important for security. It allows you to restrict
+# connections to machines which are on your local network. The
+# following example restricts access to two C class networks and
+# the "loopback" interface. For more examples of the syntax see
+# the smb.conf man page
+
+        hosts deny = ALL EXCEPT 192.168.1. 127.
+
+#        log file = /var/log/samba/log.%m
+;       load printers = yes
+        smb passwd file = /etc/samba/smbpasswd
+#        socket options = TCP_NODELAY SO_RCVBUF=8192 SO_SNDBUF=8192
+        encrypt passwords = true
+;       wins support = true
+        dns proxy = no
+#        printing = cups
+#        default = global
+;        path = /raid5/export
+        comment = Public directories
+#        printcap name = lpstat
+        #security = share
+#       max log size = 50
+;        os level = 33
+#        strict sync = no
+	 #name resolve order = lmhosts host wins bcast
+	map to guest= bad user
+
+;   null passwords = yes
+# Security mode. Defines in which mode Samba will operate. Possible 
+# values are share, user, server, domain and ads. Most people will want 
+# user level security. See the Samba-HOWTO-Collection for details.
+;   security = user
+
+# This option is important for security. It allows you to restrict
+# connections to machines which are on your local network. The
+# following example restricts access to two C class networks and
+# the "loopback" interface. For more examples of the syntax see
+# the smb.conf man page
+;   hosts allow = 192.168.1. 192.168.2. 127.
+
+# Uncomment this if you want a guest account, you must add this to /etc/passwd
+# otherwise the user "nobody" is used
+  guest account = nobody
+
+# this tells Samba to use a separate log file for each machine
+# that connects
+   log file = /var/log/samba/%m.log
+
+#============================ Share Definitions ==============================
+;[homes]
+;   comment = Home Directories
+;   browseable = no
+;   writable = yes
+
+[movies]
+   comment = Movie Server
+   browseable = yes
+   writable = yes
+   guest ok = yes
+   path = /export/movies
+   read only = no
+   public = yes
+   null passwords = yes
+
+[itunes]
+   comment = Shared Itunes Stuff
+   browseable = yes
+   writable = yes
+   guest ok = yes
+   path = /export/itunes
+   read only = no
+   public = yes
+   null passwords = yes
+
+[jeff]
+   comment = Jeffs Shared Stuff
+   browseable = yes
+   writable = yes
+   guest ok = yes
+   path = /export/jeff
+   read only = no
+   public = yes
+   null passwords = yes
+
+[marci]
+   comment = Marcis Shared Stuff
+   browseable = yes
+   writable = yes
+   guest ok = yes
+   path = /export/marci
+   read only = no
+   public = yes
+   null passwords = yes
+
+[nick]
+   comment = Nicks Shared Stuff
+   browseable = yes
+   writable = yes
+   guest ok = yes
+   path = /export/nick
+   read only = no
+   public = yes
+   null passwords = yes
+
+[backups]
+   comment = Backup space for gandalf
+   browseable = yes
+   writable = yes
+   guest ok = yes
+   path = /export/backups
+   read only = no
+   public = yes
+   null passwords = yes
+
+[photos]
+   comment = Photo Library
+   browseable = yes
+   writable = yes
+   guest ok = yes
+   path = /export/photos
+   read only = no
+   public = yes
+   null passwords = yes
+
+[music]
+   comment = Shared Music
+   browseable = yes
+   writable = yes
+   guest ok = yes
+   path = /export/music
+   read only = no
+   public = yes
+   null passwords = yes
+   directory mask = 0777
+
+[audio-books]
+   comment = Audio Book Library
+   browseable = yes
+   writable = yes
+   guest ok = yes
+   path = /export/audio-books
+   read only = no
+   public = yes
+   null passwords = yes
+   directory mask = 0777
+
+#[priv]
+#   comment = Shared Media 
+#   browseable = yes
+#   writable = yes
+#   guest ok = yes
+#   path = /export/priv
+#   read only = no
+#   public = yes
+#   null passwords = yes
+#   unix extensions = no
+#   hosts deny = ALL EXCEPT 192.168.1.3 192.168.1.4 192.168.1.5 192.168.1.6 192.168.1.7 192.168.1.8 192.168.1.9 192.168.1.10 192.168.1.89 192.168.1.90 
+
+[priv1]
+   comment = Shared Media 
+   browseable = yes
+   writable = yes
+   guest ok = yes
+   path = /export/priv1
+   read only = no
+   public = yes
+   null passwords = yes
+   unix extensions = no
+   #hosts deny = ALL EXCEPT yoda yoda-ubu winxp-news asus-oplay
+   hosts deny = ALL EXCEPT 192.168.1.3 192.168.1.4 192.168.1.5 192.168.1.6 192.168.1.7 192.168.1.8 192.168.1.9 192.168.1.10 192.168.1.88 192.168.1.89 192.168.1.90  
+   directory mask = 0777
+
+[vmware]
+   comment = VMWare Datastore 
+   browseable = yes
+   writable = yes
+   guest ok = yes
+   path = /export/vmware-datastore
+   read only = no
+   public = yes
+   null passwords = yes
+
+[videos]
+   comment = Home Movies
+   browseable = yes
+   writable = yes
+   guest ok = yes
+   path = /export/videos
+   read only = no
+   public = yes
+   null passwords = yes
+   directory mask = 0777
+
+[software]
+   comment = Software Library
+   browseable = yes
+   writable = yes
+   guest ok = yes
+   path = /export/software
+   read only = no
+   public = yes
+   null passwords = yes
+   directory mask = 0777
+
+

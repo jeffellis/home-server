@@ -1,0 +1,133 @@
+#============================ Share Definitions ==============================
+;[homes]
+;   comment = Home Directories
+;   browseable = no
+;   writable = yes
+
+[backups]
+   comment = Backup space for gandalf
+   browseable = yes
+   writable = yes
+   guest ok = yes
+   path = /export/backups
+   read only = no
+   public = yes
+
+[jeff]
+   comment = Jeffs Shared Stuff
+   browseable = yes
+   writable = yes
+   guest ok = yes
+   path = /export/jeff
+   read only = no
+   public = yes
+
+[marci]
+   comment = Marcis Shared Stuff
+   browseable = yes
+   writable = yes
+   guest ok = yes
+   path = /export/marci
+   read only = no
+   public = yes
+
+[nick]
+   comment = Nicks Shared Stuff
+   browseable = yes
+   writable = yes
+   guest ok = yes
+   path = /export/nick
+   read only = no
+   public = yes
+
+[priv]
+   comment = Shared Media 
+   browseable = yes
+   writable = yes
+   guest ok = yes
+   path = /export/priv
+   read only = no
+   public = yes
+   hosts deny = ALL EXCEPT 192.168.1.3 192.168.1.4 192.168.1.5 192.168.1.6 192.168.1.7 192.168.1.8 192.168.1.9 192.168.1.10 192.168.1.88 192.168.1.89 192.168.1.90  
+   directory mask = 0777
+
+# Union1 Shares
+
+[audio-books]
+   comment = Audio Book Library
+   browseable = yes
+   writable = yes
+   guest ok = yes
+   path = /export/audio-books
+   read only = no
+   public = yes
+   directory mask = 0777
+
+[itunes]
+   comment = Shared Itunes Stuff
+   browseable = yes
+   writable = yes
+   guest ok = yes
+   path = /export/itunes
+   read only = no
+   public = yes
+
+[Media]
+   comment = Plex Server Directory
+   browseable = yes
+   writable = yes
+   guest ok = yes
+   path = /export/Media
+   read only = no
+   public = yes
+   null passwords = yes
+
+[movies]
+   comment = Movie Server
+   browseable = yes
+   writable = yes
+   guest ok = yes
+   path = /export/movies
+   read only = no
+   public = yes
+
+[music]
+   comment = Shared Music
+   browseable = yes
+   writable = yes
+   guest ok = yes
+   path = /export/music
+   read only = no
+   public = yes
+   directory mask = 0777
+
+[photos]
+   comment = Photo Library
+   browseable = yes
+   writable = yes
+   guest ok = yes
+   path = /export/photos
+   read only = no
+   public = yes
+
+
+[software]
+   comment = Software Library
+   browseable = yes
+   writable = yes
+   guest ok = yes
+   path = /export/software
+   read only = no
+   public = yes
+   directory mask = 0777
+
+[videos]
+   comment = Home Movies
+   browseable = yes
+   writable = yes
+   guest ok = yes
+   path = /export/videos
+   read only = no
+   public = yes
+   directory mask = 0777
+

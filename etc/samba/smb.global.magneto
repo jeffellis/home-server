@@ -1,0 +1,56 @@
+#======================= Global Settings =====================================
+[global]
+
+        workgroup = 5124SALEM
+        server string = magneto
+        netbios name = magneto
+
+# This option is important for security. It allows you to restrict
+# connections to machines which are on your local network. The
+# following example restricts access to two C class networks and
+# the "loopback" interface. For more examples of the syntax see
+# the smb.conf man page
+
+        hosts deny = ALL EXCEPT 192.168.1. 127.
+
+#        log file = /var/log/samba/log.%m
+;       load printers = yes
+        smb passwd file = /etc/samba/smbpasswd
+#        socket options = TCP_NODELAY SO_RCVBUF=8192 SO_SNDBUF=8192
+        encrypt passwords = true
+;       wins support = true
+        dns proxy = no
+#        printing = cups
+#        default = global
+;        path = /raid5/export
+        comment = Public directories
+#        printcap name = lpstat
+        #security = share
+#       max log size = 50
+;        os level = 33
+#        strict sync = no
+	 #name resolve order = lmhosts host wins bcast
+	map to guest= bad user
+
+	null passwords = yes
+# Security mode. Defines in which mode Samba will operate. Possible 
+# values are share, user, server, domain and ads. Most people will want 
+# user level security. See the Samba-HOWTO-Collection for details.
+;   security = user
+
+# This option is important for security. It allows you to restrict
+# connections to machines which are on your local network. The
+# following example restricts access to two C class networks and
+# the "loopback" interface. For more examples of the syntax see
+# the smb.conf man page
+;   hosts allow = 192.168.1. 192.168.2. 127.
+
+# Uncomment this if you want a guest account, you must add this to /etc/passwd
+# otherwise the user "nobody" is used
+  guest account = nobody
+
+# this tells Samba to use a separate log file for each machine
+# that connects
+#   log file = /var/log/samba/%m.log
+
+
