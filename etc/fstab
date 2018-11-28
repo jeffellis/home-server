@@ -17,7 +17,7 @@ LABEL=WDG-3TB-01-01    /volume/internal-bay-1    btrfs   noatime,nodiratime,noau
 LABEL=TOS-3TB-02-01    /volume/internal-bay-2    btrfs   noatime,nodiratime,noauto      0       0
 LABEL=WDG-3TB-02-01    /volume/internal-bay-3    btrfs   noatime,nodiratime,compress=lzo                                 0       0
 LABEL=WDG-3TB-03-01    /volume/internal-bay-4    btrfs   noatime,nodiratime,compress=lzo                                 0       0
-LABEL=WDG-3TB-04-01    /volume/internal-bay-5    btrfs   noatime,nodiratime,compress=lzo                                 0       0
+LABEL=WDG-3TB-04-01    /volume/internal-bay-5    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum,noauto   0       2
 
 
 
@@ -41,10 +41,13 @@ LABEL=SEA-1TB-01-01 /volume/SEA-1TB-01-01    ext4    defaults,data=writeback,noa
 
 # Unions
 
-mhddfs#/volume/internal-bay-1,/volume/internal-bay-2,/volume/rosewill-bay-1,/volume/SEA-8TB-01-01,/volume/SEA-8TB-02-01,/volume/rosewill-bay-6,/volume/rosewill-bay-7,/volume/rosewill-bay-8,/volume/HIT-1TB-02-01,/volume/SEA-8TB-03-01,/volume/SEA-1TB-01-01 /volume/union2 fuse defaults,allow_other,noauto 0 0
+#mhddfs#/volume/internal-bay-1,/volume/internal-bay-2,/volume/rosewill-bay-1,/volume/SEA-8TB-01-01,/volume/SEA-8TB-02-01,/volume/rosewill-bay-6,/volume/rosewill-bay-7,/volume/rosewill-bay-8,/volume/HIT-1TB-02-01,/volume/SEA-8TB-03-01,/volume/SEA-1TB-01-01 /volume/union2 fuse defaults,allow_other,noauto 0 0
+#mhddfs#/volume/internal-bay-3,/volume/internal-bay-4,/volume/internal-bay-5 /volume/union1 fuse defaults,allow_other,noauto 0 0
 
-mhddfs#/volume/internal-bay-3,/volume/internal-bay-4,/volume/internal-bay-5 /volume/union1 fuse defaults,allow_other 0 0
+#mhddfs#/volume/internal-bay-3,/volume/internal-bay-4,/volume/internal-bay-5,/volume/internal-bay-1,/volume/internal-bay-2,/volume/rosewill-bay-1,/volume/SEA-8TB-01-01,/volume/SEA-8TB-02-01,/volume/rosewill-bay-6,/volume/rosewill-bay-7,/volume/rosewill-bay-8,/volume/HIT-1TB-02-01,/volume/SEA-8TB-03-01,/volume/SEA-1TB-01-01 /volume/union0 fuse defaults,allow_other,noauto 0 0
 
-
+#/media/HD1:/media/HD2:/media/HD3 /storage fuse.mergerfs category.create=eplfs,defaults,allow_other,fsname=mergerfsPool 0 0
+/volume/internal-bay-3/union1:/volume/internal-bay-4/union1:/volume/internal-bay-5/union1 /volume/union1 fuse.mergerfs defaults,allow_other,direct_io,use_ino,fsname=mergerfsUnion1,noauto 0 0
+/volume/internal-bay-3/union2:/volume/internal-bay-4/union2:/volume/internal-bay-5/union2:/volume/internal-bay-1:/volume/internal-bay-2:/volume/rosewill-bay-1:/volume/SEA-8TB-01-01:/volume/SEA-8TB-02-01:/volume/rosewill-bay-6:/volume/rosewill-bay-7:/volume/rosewill-bay-8:/volume/HIT-1TB-02-01:/volume/SEA-8TB-03-01:/volume/SEA-1TB-01-01 /volume/union2 fuse.mergerfs defaults,allow_other,direct_io,use_ino,fsname=mergerfsUnion2,noauto 0 0
 
 
