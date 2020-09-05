@@ -27,8 +27,8 @@ LABEL=SEA-8TB-01-01 /volume/SEA-8TB-01-01    ext4    defaults,data=writeback,noa
 #LABEL=HIT-1TB-01-01 /volume/rosewill-bay-3    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum      0       2
 LABEL=HIT-4TB-01-01 /volume/HIT-4TB-01-01    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum,noauto      0       2
 LABEL=SEA-8TB-02-01 /volume/SEA-8TB-02-01    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum,noauto   0       2
-LABEL=HIT-1TB-02-01 /volume/HIT-1TB-02-01     ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum,noauto   0       2
-LABEL=SEA-1500GB-01-01 /volume/SEA-1500GB-01-01    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum,noauto      0       2
+#LABEL=HIT-1TB-02-01 /volume/HIT-1TB-02-01     ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum,noauto   0       2
+#LABEL=SEA-1500GB-01-01 /volume/SEA-1500GB-01-01    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum,noauto      0       2
 LABEL=TOS-3TB-01-01 /volume/rosewill-bay-6    btrfs   noatime,nodiratime,noauto      0       0
 LABEL=SEA-5TB-03-01 /volume/rosewill-bay-7    btrfs   noatime,nodiratime,noauto      0       0
 LABEL=SEA-5TB-01-01 /volume/rosewill-bay-8    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum,noauto   0       2
@@ -37,17 +37,19 @@ LABEL=SEA-5TB-01-01 /volume/rosewill-bay-8    ext4    defaults,data=writeback,no
 LABEL=SEA-8TB-03-01 /volume/SEA-8TB-03-01    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum,noauto   0       2
 LABEL=SEA-8TB-04-01 /volume/SEA-8TB-04-01    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum,noauto   0       2
 
-LABEL=SEA-1TB-01-01 /volume/SEA-1TB-01-01    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum,noauto   0       2
+LABEL=SEA-8TB-05-01 /volume/SEA-8TB-05-01    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum,noauto   0       2
+
+#LABEL=SEA-1TB-01-01 /volume/SEA-1TB-01-01    ext4    defaults,data=writeback,noatime,barrier=0,journal_checksum,noauto   0       2
 
 # Unions
 
-#mhddfs#/volume/internal-bay-1,/volume/internal-bay-2,/volume/rosewill-bay-1,/volume/SEA-8TB-01-01,/volume/SEA-8TB-02-01,/volume/rosewill-bay-6,/volume/rosewill-bay-7,/volume/rosewill-bay-8,/volume/HIT-1TB-02-01,/volume/SEA-8TB-03-01,/volume/SEA-1TB-01-01 /volume/union2 fuse defaults,allow_other,noauto 0 0
+#mhddfs#/volume/internal-bay-1,/volume/internal-bay-2,/volume/rosewill-bay-1,/volume/SEA-8TB-01-01,/volume/SEA-8TB-02-01,/volume/rosewill-bay-6,/volume/rosewill-bay-7,/volume/rosewill-bay-8,/volume/HIT-1TB-02-01,/volume/SEA-8TB-03-01 /volume/union2 fuse defaults,allow_other,noauto 0 0
 #mhddfs#/volume/internal-bay-3,/volume/internal-bay-4,/volume/internal-bay-5 /volume/union1 fuse defaults,allow_other,noauto 0 0
 
-#mhddfs#/volume/internal-bay-3,/volume/internal-bay-4,/volume/internal-bay-5,/volume/internal-bay-1,/volume/internal-bay-2,/volume/rosewill-bay-1,/volume/SEA-8TB-01-01,/volume/SEA-8TB-02-01,/volume/rosewill-bay-6,/volume/rosewill-bay-7,/volume/rosewill-bay-8,/volume/HIT-1TB-02-01,/volume/SEA-8TB-03-01,/volume/SEA-1TB-01-01 /volume/union0 fuse defaults,allow_other,noauto,category.create=lfs 0 0
+#mhddfs#/volume/internal-bay-3,/volume/internal-bay-4,/volume/internal-bay-5,/volume/internal-bay-1,/volume/internal-bay-2,/volume/rosewill-bay-1,/volume/SEA-8TB-01-01,/volume/SEA-8TB-02-01,/volume/rosewill-bay-6,/volume/rosewill-bay-7,/volume/rosewill-bay-8,/volume/HIT-1TB-02-01,/volume/SEA-8TB-03-01 /volume/union0 fuse defaults,allow_other,noauto,category.create=lfs 0 0
 
 #/media/HD1:/media/HD2:/media/HD3 /storage fuse.mergerfs category.create=eplfs,defaults,allow_other,fsname=mergerfsPool 0 0
 /volume/internal-bay-3/union1:/volume/internal-bay-4/union1 /volume/union1 fuse.mergerfs defaults,allow_other,direct_io,use_ino,fsname=mergerfsUnion1,noauto,category.create=lfs 0 0
-/volume/SEA-8TB-04-01/union2:/volume/internal-bay-5/union2:/volume/internal-bay-1:/volume/internal-bay-2:/volume/rosewill-bay-1:/volume/SEA-8TB-01-01:/volume/SEA-8TB-02-01:/volume/rosewill-bay-6:/volume/rosewill-bay-7:/volume/rosewill-bay-8:/volume/HIT-1TB-02-01:/volume/SEA-8TB-03-01:/volume/SEA-1TB-01-01 /volume/union2 fuse.mergerfs defaults,allow_other,direct_io,use_ino,fsname=mergerfsUnion2,noauto,category.create=lfs 0 0
+/volume/SEA-8TB-04-01/union2:/volume/internal-bay-5/union2:/volume/internal-bay-1:/volume/internal-bay-2:/volume/rosewill-bay-1:/volume/SEA-8TB-01-01:/volume/SEA-8TB-02-01:/volume/rosewill-bay-6:/volume/rosewill-bay-7:/volume/rosewill-bay-8:/volume/SEA-8TB-03-01:/volume/SEA-8TB-05-01 /volume/union2 fuse.mergerfs defaults,allow_other,direct_io,use_ino,fsname=mergerfsUnion2,noauto,category.create=mfs 0 0
 
 

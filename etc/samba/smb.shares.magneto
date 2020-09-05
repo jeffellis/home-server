@@ -79,7 +79,7 @@
    guest ok = yes
    path = /export/Media
    read only = no
-   public = yes
+#   public = yes
    null passwords = yes
 
 [movies]

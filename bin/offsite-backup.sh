@@ -1,7 +1,7 @@
 #!/bin/sh -x
 
 #DESTDRIVE=/volume/backup
-DESTDRIVE=/media/sysadm/EXT_BACKUP1
+DESTDRIVE=/media/sysadm/EXT_BACKUP
 PASSWORD=$FS_ENCRYPT_PASSWORD
 VOLNAME='EXT_BACKUP'
 

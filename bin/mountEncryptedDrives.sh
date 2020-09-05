@@ -33,7 +33,7 @@ cryptsetup luksOpen --key-file ${KEY} /dev/disk/by-partlabel/HIT-4TB-01-01 HIT-4
 cryptsetup luksOpen --key-file ${KEY} /dev/disk/by-partlabel/SEA-8TB-02-01 SEA-8TB-02-01
 
 # rosewill-bay-5
-cryptsetup luksOpen --key-file ${KEY} /dev/disk/by-partlabel/SEA-1500GB-01-01 SEA-1500GB-01-01
+#cryptsetup luksOpen --key-file ${KEY} /dev/disk/by-partlabel/SEA-1500GB-01-01 SEA-1500GB-01-01
 
 # rosewill-bay-6
 cryptsetup luksOpen --key-file ${KEY} /dev/disk/by-partlabel/TOS-3TB-01-01 TOS-3TB-01-01
@@ -45,15 +45,16 @@ cryptsetup luksOpen --key-file ${KEY} /dev/disk/by-partlabel/SEA-5TB-03-01 SEA-5
 cryptsetup luksOpen --key-file ${KEY} /dev/disk/by-partlabel/SEA-5TB-01-01 SEA-5TB-01-01
 
 # rosewill-bay-8
-cryptsetup luksOpen --key-file ${KEY} /dev/disk/by-partlabel/HIT-1TB-02-01 HIT-1TB-02-01
+#cryptsetup luksOpen --key-file ${KEY} /dev/disk/by-partlabel/HIT-1TB-02-01 HIT-1TB-02-01
 
 # Front access second from bottom
 cryptsetup luksOpen --key-file ${KEY} /dev/disk/by-partlabel/SEA-8TB-03-01 SEA-8TB-03-01
 
 # USB
 cryptsetup luksOpen --key-file ${KEY} /dev/disk/by-partlabel/SEA-8TB-04-01 SEA-8TB-04-01
+cryptsetup luksOpen --key-file ${KEY} /dev/disk/by-partlabel/SEA-8TB-05-01 SEA-8TB-05-01
 
-cryptsetup luksOpen --key-file ${KEY} /dev/disk/by-partlabel/SEA-1TB-01-01 SEA-1TB-01-01
+#cryptsetup luksOpen --key-file ${KEY} /dev/disk/by-partlabel/SEA-1TB-01-01 SEA-1TB-01-01
 
 # To add keyfile -- sudo cryptsetup luksAddKey /dev/sdX /root/keyfile 
 
@@ -72,10 +73,11 @@ mount /volume/SEA-8TB-01-01
 mount /volume/SEA-8TB-02-01
 mount /volume/SEA-8TB-03-01
 mount /volume/SEA-8TB-04-01
+mount /volume/SEA-8TB-05-01
 
-mount /volume/HIT-1TB-02-01
-mount /volume/SEA-1TB-01-01
-mount /volume/SEA-1500GB-01-01
+#mount /volume/HIT-1TB-02-01
+#mount /volume/SEA-1TB-01-01
+#mount /volume/SEA-1500GB-01-01
 
 mount /volume/union1
 mount /volume/union2
